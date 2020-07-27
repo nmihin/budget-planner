@@ -10,6 +10,10 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent {
+  reasonInput = document.querySelector('#input-reason');
+  amountInput = document.querySelector('#input-amount');
+  expensesList = document.querySelector('#expenses-list');
+
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
@@ -18,10 +22,30 @@ export class AppComponent {
     this.initializeApp();
   }
 
+  /*
+  onClick(){
+    const enteredReason = this.reasonInput.value;
+    const enteredAmount = this.amountInput.value;
+
+    if (
+      enteredReason.trim().length <= 0 || 
+      enteredAmount <= 0 ||
+      enteredAmount.trim().length <= 0
+    ){
+      return;
+    }
+    console.log(enteredReason, enteredAmount);
+    const newItem = document.createElement('ion-item');
+    newItem.textContent = enteredReason + ': $' + enteredAmount;
+
+    this.expensesList.appendChild(newItem);
+  }
+  */
   initializeApp() {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
   }
+  
 }
